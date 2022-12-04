@@ -13,7 +13,8 @@ namespace TweetGate
             { "saveTweets", SaveTweets},
             { "saveAggregates", SaveAggregates},
             { "printDB", PrintDB},
-            { "repl", Repl}
+            { "repl", Repl},
+            { "sendToEventhub", SendToEventHub},
         };
 
         static async Task Main(string[] args)
