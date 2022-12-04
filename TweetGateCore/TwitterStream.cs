@@ -103,11 +103,11 @@ namespace TweetGate.Core
                         if(streamReadTimer.Elapsed < TimeSpan.FromMinutes(1))
                         {
                             logWriter.WriteLine($"{DateTime.UtcNow:o} Read Zero Bytes. Not restarting because read duration was less: {streamReadTimer.Elapsed} . Exiting");
-                            break;
                         }
                         else
                         {
                             twitterStream.Dispose();
+                            logWriter.WriteLine($"{DateTime.UtcNow:o} Recreating TwitterStream");
                             twitterStream = await getTwitterStreamAsync();
                         }
                     }

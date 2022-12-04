@@ -21,10 +21,6 @@ namespace TweetGate
             string twitterConfigFile = args[1];
             string destinationFile = args[2];
             long durationMinutes = long.Parse(args[3]);
-            if( durationMinutes <= 0 )
-            {
-                throw new InvalidOperationException("Duration should be positive");
-            }
 
             CancellationTokenSource cts = new CancellationTokenSource();
             cts.CancelAfter(TimeSpan.FromMinutes(durationMinutes));
@@ -33,7 +29,7 @@ namespace TweetGate
             logWriter.WriteLine($"Using config from: '{twitterConfigFile} Minutes to save: '{durationMinutes}' Writing to: {destinationFile}");
             logWriter.WriteLine($"Track Terms: {twitterConfig.TrackTerms}");
             Stream twitterStream = await TwitterStream.GetStream(twitterConfig);
-            long count = 0;
+            ulong count = 0;
 
             using(var destination = File.OpenWrite(destinationFile))
             using(var writer = new StreamWriter(destination))
@@ -43,7 +39,7 @@ namespace TweetGate
                 {
                     count++;
                     writer.WriteLine(tweet);
-                    if(stopWatch.Elapsed.TotalMinutes > durationMinutes)
+                    if(durationMinutes > 0 && stopWatch.Elapsed.TotalMinutes > durationMinutes)
                     {
                         break;
                     }

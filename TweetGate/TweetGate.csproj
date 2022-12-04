@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Messaging.EventHubs" Version="5.7.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="rocksdb" Version="7.1.2.28620" />
+    <PackageReference Include="rocksdb" Version="7.7.3.33461" />
   </ItemGroup>
 
   <ItemGroup>
