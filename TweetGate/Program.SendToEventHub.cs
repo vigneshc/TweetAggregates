@@ -23,6 +23,7 @@ namespace TweetGate
             if(args.Length != 4)
             {
                 logWriter.WriteLine("Usage: TweetGate saveTweets twitterConfig eventhubConfig durationMinutes");
+                logWriter.WriteLine("Gets tweets using twitter's stream api, and sends it to eventhub provided in eventhHubConfig for a duration of durationMinutes");
             }
 
             string twitterConfigFile = args[1];
