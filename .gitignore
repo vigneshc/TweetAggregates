@@ -3,3 +3,5 @@ TweetGate/obj/
 TweetGateCore/obj/
 TweetGateCore/bin/
 .vscode/
+TweetAggregateTests/obj/
+TweetAggregateTests/bin/
